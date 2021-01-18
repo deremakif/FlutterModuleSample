@@ -31,7 +31,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(
-                        new FlutterActivity.NewEngineIntentBuilder(MyFlutterActivity.class).build(getApplicationContext())
+
+                      new FlutterActivity.NewEngineIntentBuilder(MyFlutterActivity.class)
+                            
+                                .initialRoute("/second")
+                                .build(getApplicationContext())
+
+                        //new FlutterActivity.NewEngineIntentBuilder(MyFlutterActivity.class).build(getApplicationContext())
                 );
             }
         });
