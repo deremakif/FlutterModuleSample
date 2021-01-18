@@ -31,6 +31,13 @@ class _SecondScreenState extends State<SecondScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    print("object");
+    print(widget.title);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
