@@ -1,4 +1,4 @@
-# Communication between native Android app and flutter modules
+# Communication between native Android app and Flutter modules
 
 Android application demonstrating how to communicate between native and Flutter code.
 
