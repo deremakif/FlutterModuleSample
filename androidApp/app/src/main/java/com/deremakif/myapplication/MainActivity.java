@@ -26,16 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.fab);
 
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(
-
                       new FlutterActivity.NewEngineIntentBuilder(MyFlutterActivity.class)
-                            
-                                .initialRoute("/second")
-                                .build(getApplicationContext())
+                              .initialRoute("/second")
+                              .build(getApplicationContext())
+                              .putExtra("title", "Title")
 
                         //new FlutterActivity.NewEngineIntentBuilder(MyFlutterActivity.class).build(getApplicationContext())
                 );

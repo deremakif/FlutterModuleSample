@@ -12,6 +12,9 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   int _counter = 0;
+
+  String title = "";
+
   static const platformMethodChannel =
       const MethodChannel('samples.flutter.io/battery');
   void _incrementCounter() async {
@@ -33,8 +36,16 @@ class _SecondScreenState extends State<SecondScreen> {
   @override
   void initState() {
     super.initState();
-    print("object");
-    print(widget.title);
+
+    getTitle();
+  }
+
+  getTitle() async {
+      String res = await platformMethodChannel.invokeMethod('getTitle');
+
+      setState(() {
+        title = res;
+      });
   }
 
   @override
@@ -49,6 +60,10 @@ class _SecondScreenState extends State<SecondScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'Parameter: ' +  title,
+            ),
+
             Text(
               'You have pushed the button this many times:',
             ),
