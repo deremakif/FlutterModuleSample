@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
         '/': (context) => FirstScreen(),
         '/second': (context) => SecondScreen(),
       },
-      // home: FirstScreen(title: 'Flutter Demo Home Page'), //  Warning: When using initialRoute, don’t define a home property.
     );
   }
 }

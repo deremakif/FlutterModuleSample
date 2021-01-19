@@ -17,12 +17,16 @@ class _SecondScreenState extends State<SecondScreen> {
 
   static const platformMethodChannel =
       const MethodChannel('samples.flutter.io/battery');
+
   void _incrementCounter() async {
     try {
-      var response =
+      String response =
           await platformMethodChannel.invokeMethod('getBatteryLevel');
 
       print(response);
+      setState(() {
+        title = response;
+      });
     } on PlatformException catch (e) {
       print("e.message");
       print(e.message);
@@ -41,11 +45,11 @@ class _SecondScreenState extends State<SecondScreen> {
   }
 
   getTitle() async {
-      String res = await platformMethodChannel.invokeMethod('getTitle');
+    String res = await platformMethodChannel.invokeMethod('getTitle');
 
-      setState(() {
-        title = res;
-      });
+    setState(() {
+      title = res;
+    });
   }
 
   @override
@@ -61,9 +65,8 @@ class _SecondScreenState extends State<SecondScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Parameter: ' +  title,
+              'Parameter: ' + title,
             ),
-
             Text(
               'You have pushed the button this many times:',
             ),
